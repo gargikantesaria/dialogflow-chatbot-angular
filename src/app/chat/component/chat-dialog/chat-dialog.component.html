@@ -1,0 +1,53 @@
+<div class="chat-dialog-page">
+    <div class="container">
+        <div class="row m-auto">
+          <div class="col">
+            <!-- chat card section -->
+            <div class="card shadow">
+              <img src="/assets/images/bot.svg" alt="bot" class="bot">
+              <!-- messages section -->
+              <div class="card-body" #scrollBottom>
+                <div *ngFor="let message of messageList">
+                  <div class="message" [ngClass]="{ 'from': !message.isOwner , 'to': message.isOwner }">
+                    {{ message.text }}
+                  </div>
+                </div>
+              </div>
+              <!-- send message & record audio section -->
+              <div class="card-footer">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Type a message..." aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" [(ngModel)]="message" (keydown.enter)="sendMessage(message);$event.preventDefault()"> 
+                  <div class="input-group-append" id="button-addon4">
+                    <button class="btn btn-outline-secondary btn-send" (click)="sendMessage(message)" type="button">
+                      <svg class="bi bi-play-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                      </svg>
+                    </button>
+                    <!-- For voice message -->
+                    <button class="btn btn-outline-secondary btn-send btn-mike tooltip-container" id="voice-mic-btn" holdable (startRec)="startRecording()" (stopRec)="stopRecording()" type="button">
+                      <svg class="bi bi-mic-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                      </svg>
+                      <span class="chatboat-tooltip">
+                        Please hold this mic button to start voice message & release to stop and send voice message.
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Technology used section  -->
+    <div class="container-fluid my-2">
+        <div class="row">
+          <div class="col"> 
+            <div class="techused">
+              Technologies used: <a href="https://dialogflow.com/"> <img src="/assets/images/dialogeflow.svg" alt="dialogeflow"></a> <a href="https://angular.io/"> <img src="/assets/images/angular-logo.png" class="angular" alt="dialogeflow"></a> 
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.dialogflow-main-page .info-section .info-text{
+    margin: 8px 0 8px 0;
+    color: #0fd0ec;
+}
+
+.dialogflow-main-page .info-section .info-text span{
+    color: #41e291;
+}
+
+.dialogflow-main-page .navbar-brand{
+    font-size: 32px;
+    font-family: 'Montserrat';
+    color: #0b0e1f;
+    font-weight : 400;
+    line-height: inherit;
+    white-space: nowrap;
+    position: absolute;
+    right: 30px;
+    top: 4px;
+    cursor: pointer;
+}
+
+.dialogflow-main-page .navbar-text{
+    font-weight : 600;
+}
